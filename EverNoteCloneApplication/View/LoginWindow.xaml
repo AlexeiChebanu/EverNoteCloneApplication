@@ -7,7 +7,10 @@
         xmlns:vm="clr-namespace:EvernoteClone.ViewModel"
         xmlns:local="clr-namespace:EvernoteClone.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300">
+        Title="Login" 
+        
+        Height="300" 
+        Width="300">
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
@@ -101,7 +104,7 @@
             <Button x:Name="button" Command="{Binding LoginCommand}"
                     Margin="5"
                     CommandParameter="{Binding User}"
-                    Content="Login" Foreground="#FF06AFD4" RenderTransformOrigin="0.5,0.5">
+                    Content="Login" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -139,7 +142,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Visibility="{Binding RegisterVis}"
-                    Margin="10,0" Background="#FF0A08BA">
+                    Margin="10,0">
             <TextBlock Text="Email:"/>
             <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Name:"/>
@@ -154,7 +157,8 @@
                     CommandParameter="{Binding User}"
                     Margin="0 5"
                     Content="Register"/>
-            <TextBlock Text="Login"
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Login"
                        Foreground="DodgerBlue"
                        TextDecorations="Underline">
                 <i:Interaction.Triggers>
@@ -162,7 +166,8 @@
                         <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-            </TextBlock>
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
